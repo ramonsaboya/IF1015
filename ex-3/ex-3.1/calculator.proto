@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+message EvaluateRequest {
+    string operation = 1;
+    int32 x1 = 2;
+    int32 x2 = 3;
+}
+
+message EvaluateResponse {
+    oneof response_type {
+        int32 result = 1;
+        string math_error = 2;
+    }
+}
+
+service CalculatorService {
+    rpc Evaluate(EvaluateRequest) returns (EvaluateResponse);
+}

@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+service ChatService {
+    rpc ClientSend(ClientSendRequest) returns (ClientSendResponse);
+    rpc ServerSend(ServerSendRequest) returns (stream ServerSendResponse);
+}
+
+message ClientSendRequest {
+    string message = 1;
+}
+message ClientSendResponse {}
+
+message ServerSendRequest {}
+message ServerSendResponse {
+    string message = 1;
+}
